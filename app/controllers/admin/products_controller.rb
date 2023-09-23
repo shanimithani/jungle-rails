@@ -1,4 +1,5 @@
 class Admin::ProductsController < ApplicationController
+  before_action :http_basic_authenticate #Authentication 
 
   def index
     @products = Product.order(id: :desc).all
@@ -25,6 +26,12 @@ class Admin::ProductsController < ApplicationController
   end
 
   private
+
+  def http_basic_authenticate #Authentication
+    authenticate_or_request_with_http_basic do |username, password|
+      username == ENV['BASIC_AUTH_USERNAME'] && BCrypt::Password.new(ENV['BASIC_AUTH_PASSWORD_HASH']) == password
+    end
+  end
 
   def product_params
     params.require(:product).permit(

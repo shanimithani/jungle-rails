@@ -1,0 +1,26 @@
+<div class="order-info">
+      <strong>Order Date:</strong>
+      <%= @order.created_at.strftime("%B %d, %Y") %>
+    </div>
+
+
+    <% @line_items.each do |line_item| %>
+      <div class="line-item">
+        <div class="product-info">
+          <%= image_tag line_item.product.image.thumb.url , alt: line_item.product.name %>
+          <h3><%= line_item.product.name %></h3>
+          <p><%= line_item.product.description %></p>
+        </div>
+        <div class="quantity-total">
+          <strong>Quantity: <%= line_item.quantity %></strong>
+          <br>
+          <strong>Item Total: <%= humanized_money_with_symbol line_item.total_price %></strong>
+        </div>
+      </div>
+      <hr/>
+    <% end %>
+
+    <div class="order-summary">
+      <h3>Order total: <%= humanized_money_with_symbol @order.total %></h3>
+      <h4>Email: <%= @order.email %></h4>
+    </div>

@@ -1,12 +1,17 @@
 <section class="orders-show">
 
   <header class="page-header">
-    <h1>Order #<%= @order.id %></h1>
-  </header>
-
   <div class="order-summary jumbotron">
     <h4>Thank you for your order!</h4>
+    <hr/>
   </div>
+  </header>
+
+  <h1> Order Details </h1>
+  <div>
+   <%= render @order %>
+  </div>
+
 
   <%= link_to "Continue Shopping", root_path, class: 'btn btn-lg btn-primary' %>
 

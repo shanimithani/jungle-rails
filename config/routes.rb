@@ -1,9 +1,27 @@
 Rails.application.routes.draw do
+  get 'sessions/new'
+  get 'sessions/create'
+  get 'sessions/destroy'
+  get 'users/new'
+  get 'users/create'
   get 'about', to: 'about#index' #About page 
+
+  # User routes
+  get '/signup', to: 'users#new'
+
+  # Session routes
+  get '/login', to: 'sessions#new'
+  post '/login', to: 'sessions#create'
+  delete '/logout', to: 'sessions#destroy'
+  
   root to: 'products#index'
 
   resources :products, only: [:index, :show]
   resources :categories, only: [:show]
+
+  #User resources 
+  resources :users, only: [:new, :create]
+  resources :sessions, only: [:new, :create, :destroy]
 
   resource :cart, only: [:show] do
     post :add_item

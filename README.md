@@ -2,6 +2,8 @@
 
 A mini e-commerce application built with Rails 6.1 for purposes of teaching Rails by example.
 
+<img width="786" alt="Screen Shot 2023-09-27 at 2 03 26 PM" src="https://github.com/shanimithani/jungle-rails/assets/10202231/3e3b8540-0270-410f-8d00-a730c3a86dc7">
+
 ## Setup
 
 1. Run `bundle install` to install dependencies
@@ -22,6 +24,8 @@ If Rails is complaining about authentication to the database, uncomment the user
 Use Credit Card # 4111 1111 1111 1111 for testing success scenarios.
 
 More information in their docs: <https://stripe.com/docs/testing#cards>
+
+<img width="961" alt="Screen Shot 2023-09-27 at 2 03 52 PM" src="https://github.com/shanimithani/jungle-rails/assets/10202231/be2c6ce8-1432-4613-9888-f203cfcf8f5b">
 
 ## Dependencies
 
